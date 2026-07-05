@@ -101,6 +101,7 @@ GitHub + jsDelivr CDN 配置步骤
 
 
 更新历史
+
 v2.5.1 (2026-07-06)
 紧急修复：include.php 文件被截断导致 "syntax error, unexpected end of file" 致命错误
 补全 zoovox_imagehosting_getuploadbyurl 函数缺失的代码

@@ -2,6 +2,7 @@
 
 
 #1、超级右键菜单
+https://github.com/user-attachments/files/29669167/ZooVox_SuperMenu_3.0.5_2026-07-05.zip
 
 14+
 内置功能
@@ -42,6 +43,8 @@ kb
 
  
  #2、图床外链助手
+ https://github.com/user-attachments/files/29682785/zoovox_imagehosting_2.5.1_2026-07-06.zip
+ 
 
  功能简介
 图床外链助手是一款功能强大的图片外链插件，自动将文章图片上传到图床服务器，减轻服务器带宽压力。

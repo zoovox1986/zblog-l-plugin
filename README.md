@@ -43,7 +43,7 @@ kb
 
  
  #2、图床外链助手
- https://github.com/user-attachments/files/29682785/zoovox_imagehosting_2.5.1_2026-07-06.zip
+ [https://github.com/user-attachments/files/29682785/zoovox_imagehosting_2.5.1_2026-07-06.zip](https://github.com/zoovox1986/zblog-l-plugin/releases)
  
 
  功能简介

@@ -105,6 +105,89 @@ GitHub + jsDelivr CDN 配置步骤
 
 更新历史
 
+v4.1.3 (2026-07-07)
+
+修复 已上传图片跳过逻辑：统一 get_upload_list.php、batch_upload.php、include.php 的跳过判断规则
+修复 旧版本兼容：支持 tuchuang_api 为空但 tuchuang 已设置的旧记录正确跳过，避免重复上传
+修复 文章编辑上传：仅当 tuchuang 为空时才上传，不再因 tuchuang_api 不匹配而重复上传
+
+v4.1.2 (2026-07-07)
+
+修复 路过图床：添加完整日志记录，支持匿名上传回退，修复配置参数无法保存问题
+修复 ImgBB：移除默认过期API Key，强制用户配置有效Key，API调用方式符合官方规范
+修复 sm.ms：API端点从 sm.ms/api/v2/upload 迁移到 s.ee/api/v1/file/upload，添加Token认证配置
+修复 postimages.org：API端点从 /upload 改为 /json，添加X-Requested-With头
+修复 catbox.moe：强制HTTP/1.1连接，修复HTTP/2流错误
+新增 sm.ms配置面板：支持填写API Token，可选匿名上传
+修复 POST白名单：添加 imgchr_username、imgchr_password、imgur_client_id、imgbb_api_key、smms_token
+修复 配置面板切换：添加sm.ms配置面板的实时切换
+
+
+v4.1.0 (2026-07-06)
+
+修复 插件启用失败：打包结构错误，压缩包内缺少根目录 zoovox_imagehosting/
+新增 ImgPile（imgpile.com）：国外免费图床，单图最大200MB，直链稳定
+新增 时光图床（shiguangtc.com）：国内免费图床，无需注册，支持直链
+新增 ImgBB（imgbb.com）：国外免费图床，单图最大32MB，直链稳定
+图床分类调整：重新组织为「最推荐」「国内图床」「国外图床」「自定义图床」
+GitHub + jsDelivr：添加国内DNS污染风险提示
+
+
+【重大更新】v4.0.0 (2026-07-06)
+
+新增 Cloudflare R2 图床：每月10GB免费空间，读写流量完全免费，全球CDN加速，抗封禁能力强
+新增 聚合图床（superbed.cn）：国内商业运营，免费基础版更持久
+更新 路过图床：API端点从 imgtu.com 迁移到 imgse.com
+移除 蜜蜂图床（beeimg.cn）：服务不稳定，HTTP 500错误频繁
+移除 图壳（imgkr.com）：域名已失效
+移除 ImgTP（imgtp.com）：域名已出售
+修复 sm.ms：移除空 Authorization 头，支持匿名上传
+修复 postimages.org：更新API端点为 api.postimages.org/json
+新增 重置上传状态功能：仅清除当前图床的上传记录，可重新上传
+新增 切换图床后可重新上传已在其他图床上传过的图片
+统计功能：修复"查看各图床上传数量"显示为空的问题
+统计功能：修复"一键处理"统计包含已上传图片的问题
+
+
+v3.4.0 (2026-07-06)
+
+GitHub图床：新增CDN线路选择功能，支持多条优质稳定备用线路
+CDN选项：jsDelivr默认、Fastly CDN、Cloudflare CDN、Gcore CDN、自定义CDN
+自定义CDN：支持手动输入自定义CDN地址，应对jsDelivr失效或被污染的情况
+一键处理：修复fetchUploadList错误处理，添加超时和网络错误提示
+
+
+v3.3.0 (2026-07-06)
+
+GitHub API：新增 Accept: application/vnd.github.v3+json 请求头，符合官方API规范
+批量上传：间隔从500ms增加到2000ms，符合GitHub限流要求
+限流处理：新增403/429错误检测，触发时自动停止并弹窗提示
+文件验证：新增单图≤10MB大小限制，拒绝超大原图上传
+Token安全：确保Token仅存储在后台配置，不输出到前端页面
+
+
+v3.2.0 (2026-07-06)
+
+GitHub图床：增加完整防封禁教程，包含5个步骤配置指南
+GitHub图床：推荐按用途分类存储路径（blog/、notes/、tutorial/），避免堆在根目录
+GitHub图床：提供仓库README英文合规模板，完善仓库信息降低封禁风险
+GitHub图床：新增日常使用规范（图片压缩、仓库容量监控、季度Token轮换等）
+
+v3.1.0 (2026-07-06)
+
+蜜蜂图床：新增 API Key 配置（可选），游客模式每分钟限传1张，填写API Key提升配额
+GitHub图床：添加使用警示，建议使用细粒度 Fine-grained Token，单次上传≤10张，间隔30秒以上
+蜜蜂图床API更新：使用官方最新接口 beeimg.com/api/upload/file/json/
+修复：新增蜜蜂图床配置面板动态显示逻辑
+【重大更新】v3.0.0 (2026-07-06)
+
+新增一键处理所有文章图片功能：批量上传历史图片到图床
+采用AJAX逐张上传方案，避免PHP超时和图床限流
+仅更新图片元数据，绝不修改文章内容，确保安全
+已上传图片自动跳过，支持中断续传
+实时进度追踪，显示成功/失败/跳过数量
+新增 batch_upload.php 和 get_upload_list.php 接口文件
+
 v2.5.1 (2026-07-06)
 紧急修复：include.php 文件被截断导致 "syntax error, unexpected end of file" 致命错误
 补全 zoovox_imagehosting_getuploadbyurl 函数缺失的代码
